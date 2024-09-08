@@ -46,11 +46,11 @@ Follow these steps to install **Portal** on your server.
 
 1. **Download the installer:**
 
-   Download the folder `portal` from the repository.
+   Download the content from the repository.
 
 2. **Upload to your server:**
 
-    Upload the contant of the folder `portal` file to your webserver's root directory.
+    Upload the content to your webserver's root directory.
 
 3. **Run the installer:**
 
