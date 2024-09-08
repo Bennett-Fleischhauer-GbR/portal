@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.sidebar {
+    position: relative; /* Damit das absolute Positionieren der Schritte funktioniert */
+    width: 250px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo {
+    margin-bottom: 20px;
+    width: 200px;
+    height: auto;
+}
+.steps {
+    position: absolute; /* Absolute Positionierung für unabhängige Zentrierung */
+    top: 50%; /* Positioniere das obere Ende der Schritte auf 50% der Sidebar-Höhe */
+    transform: translateY(-50%); /* Verschiebe die Schritte nach oben, um sie perfekt zu zentrieren */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+.step {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.step.active {
+    background-color: #152039;
+    color: white;
+    font-weight: bold;
+}
+.content-container {
+    width: 1000px;
+    height: 65%;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.step-form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 500px;
+}
+.radio-group {
+    display: block;
+    margin-top: 10px; /* optional, falls du etwas Platz willst */
+}
+
+.radio-inline {
+    display: flex;
+    align-items: center; /* sorgt dafür, dass der Text vertikal neben dem Button ausgerichtet ist */
+    margin-top: 5px;
+}
+
+.radio-inline input {
+    margin-right: 10px; /* sorgt dafür, dass etwas Platz zwischen dem Radiobutton und dem Label-Text ist */
+}
+
+.radio-inline label {
+    margin: 0;
+}
+
+
+.step-form button {
+    padding: 10px 30px;
+    background-color: #ff914d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+.alert {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.alert-success {
+    width: 700px;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #ff914d !important;
+    border-color: #ff914d !important;
+    opacity: 0.8 !important;
+}
+
+.form-control {
+    border-radius: 10px !important;
+    padding: 10px !important;
+}

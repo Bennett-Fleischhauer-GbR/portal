@@ -1,0 +1,854 @@
+:root {
+    --primary-color: #152039;
+    /* Platzhalter, wird durch PHP überschrieben */
+    --secondary-color: #e5803a;
+    /* Platzhalter, wird durch PHP überschrieben */
+}
+
+/* Allgemeine Stile */
+body {
+    padding-top: 90px;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+[data-bs-theme="dark"] body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Hauptinhalt */
+.main-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+[data-bs-theme="dark"] .main-content {
+    background-color: #121212;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #f8f9fa;
+    height: 90px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-bs-theme="dark"] .navbar {
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .navbar-brand .logo {
+    display: inline;
+    height: 60px;
+}
+
+.navbar .navbar-brand .logo-dark {
+    display: none;
+}
+
+[data-bs-theme="dark"] .navbar .navbar-brand .logo-light {
+    display: none;
+}
+
+[data-bs-theme="dark"] .navbar .navbar-brand .logo-dark {
+    display: inline;
+}
+
+.navbar-nav {
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation Links */
+[data-bs-theme="light"] .nav-item a {
+    color: #212529;
+    transition: color 0.2s ease;
+}
+
+[data-bs-theme="light"] .nav-item a.active,
+[data-bs-theme="light"] .nav-item a:hover,
+[data-bs-theme="light"] .nav-item a:active,
+[data-bs-theme="light"] .nav-item a:focus {
+    color: var(--secondary-color);
+}
+
+[data-bs-theme="dark"] .nav-item a {
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .nav-item a.active,
+[data-bs-theme="dark"] .nav-item a:hover,
+[data-bs-theme="dark"] .nav-item a:active,
+[data-bs-theme="dark"] .nav-item a:focus {
+    color: var(--secondary-color);
+}
+
+/* Button Styles */
+.btn-outline-orange {
+    color: var(--secondary-color) !important;
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-orange:hover {
+    background-color: var(--secondary-color);
+    color: #000000 !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--secondary-color);
+    --bs-btn-border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+    color: var(--bs-btn-disabled-color);
+    pointer-events: none;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    opacity: var(--bs-btn-disabled-opacity);
+}
+
+
+/* Dezentere Farbe und kleinere Größe für den Reset-Button */
+.btn-outline-secondary {
+    color: #6c757d;
+    /* Sekundärfarbe, leicht grauer Ton */
+    border-color: #6c757d;
+    background-color: transparent;
+    padding: 0.375rem 0.75rem;
+    /* Leicht angepasste Größe für besseren Look */
+    font-size: 0.875rem;
+    /* Kleinere Schriftgröße */
+    margin-bottom: 9px;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+
+
+/* Karten und Tabellen */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.1s ease-in-out;
+    height: 100%;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1f1f1f;
+    border-color: #444444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.mb-5 {
+    margin-bottom: 2rem !important;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+[data-bs-theme="dark"] .card-body {
+    color: #e0e0e0;
+}
+
+.card.hover-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme="dark"] .card.hover-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+[data-bs-theme="dark"] .table {
+    --bs-table-bg: #1F1F1F;
+    --bs-table-striped-bg: #1F1F1F;
+}
+
+.table {
+    --bs-table-striped-bg: #FFFFFF;
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Spezifische Breiten für die 'link_settings.php' */
+.resizable-table th:first-child,
+.resizable-table td:first-child {
+    width: 30px;
+}
+
+.resizable-table th:nth-child(2),
+.resizable-table td:nth-child(2) {
+    width: 80px;
+}
+.resizable-table th:last-child,
+.resizable-table td:last-child {
+    width: 188px;
+}
+
+/* Spezifische Breiten für die 'user_dashboard.php' */
+.user-table th:first-child,
+.user-table td:first-child {
+    width: 70px; /* Beispielwert */
+}
+
+.user-table th:last-child,
+.user-table td:last-child {
+    width: 254px; /* Beispielwert */
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+
+    .navbar-nav {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 1.5rem;
+    }
+
+    .mobile-menu .navbar-nav {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .password-strength-bar {
+        width: 100% !important;
+    }
+
+    .requirements {
+        max-width: 100% !important;
+    }
+
+    .password-strength-label {
+        width: 100% !important;
+    }
+}
+
+/* Typografie */
+
+
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] p {
+    color: #ffffff;
+}
+
+h3 {
+    margin-bottom: 15px;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+/* Fußzeile */
+.footer {
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.footer p,
+[data-bs-theme="dark"] .footer p {
+    color: #e0e0e0;
+}
+
+/* Sonstiges */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #343a40;
+    width: 120px;
+    height: 50px;
+}
+
+.theme-toggle .theme-name {
+    display: none;
+    margin-left: 10px;
+}
+
+.theme-toggle:hover .theme-name {
+    display: inline;
+}
+
+.icon,
+.gravatar-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.gravatar-icon {
+    width: 40px;
+    height: 40px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ms-auto {
+    margin-left: 0 !important;
+}
+
+/* Nachrichten */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Mobile Menü */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+[data-bs-theme="dark"] .mobile-menu {
+    background-color: #1f1f1f;
+}
+
+.mobile-menu .nav-link {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    padding: 0.5rem 0;
+    display: block;
+    text-align: left;
+    /* Left align text */
+}
+
+[data-bs-theme="dark"] .mobile-menu .nav-link {
+    color: #ffffff;
+}
+
+.mobile-menu .nav-link.active {
+    color: var(--secondary-color);
+}
+
+.mobile-menu .nav-link:hover,
+.mobile-menu .nav-link:focus {
+    color: var(--secondary-color);
+}
+
+.mobile-menu .close-btn {
+    font-size: 2rem;
+    border: none;
+    background: none;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0px 15px;
+    /* Add padding for better touch target */
+    border-radius: 8px;
+    /* Rounded corners */
+    border: 1px solid #ccc;
+    /* Border for the button */
+}
+
+[data-bs-theme="dark"] .mobile-menu .close-btn {
+    color: #ffffff;
+    border-color: #444444;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Dropdown-Menüs */
+.dropdown-menu {
+    display: none;
+    text-align: left;
+}
+
+.dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
+    display: block;
+}
+
+.dropdown-item.active,
+.dropdown-item.active:focus,
+.dropdown-item.active:hover {
+    background-color: transparent;
+    color: var(--secondary-color) !important;
+}
+
+[data-bs-theme="dark"] .dropdown-item.active,
+[data-bs-theme="dark"] .dropdown-item.active:focus,
+[data-bs-theme="dark"] .dropdown-item.active:hover {
+    color: var(--secondary-color) !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: var(--bs-dropdown-link-hover-bg);
+}
+
+[data-bs-theme="dark"] .dropdown-item:focus,
+[data-bs-theme="dark"] .dropdown-item:hover {
+    color: #ffffff;
+}
+
+/* Passwortstärke-Anzeige */
+.password-strength-bar {
+    height: 10px;
+    width: 50%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.password-strength-level {
+    height: 100%;
+    width: 0;
+    background-color: red;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+.password-strength-bar::before,
+.password-strength-bar::after,
+.password-strength-bar span,
+.password-strength-bar span:nth-child(2) {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #fff;
+}
+
+.password-strength-bar::before {
+    left: 20%;
+}
+
+.password-strength-bar span {
+    left: 40%;
+}
+
+.password-strength-bar span:nth-child(2) {
+    left: 60%;
+}
+
+.password-strength-bar::after {
+    left: 80%;
+}
+
+.requirements {
+    margin-left: 5px;
+    font-size: 0.9em;
+    max-width: 50%;
+}
+
+.requirement {
+    color: red;
+    display: flex;
+    align-items: center;
+}
+
+.requirement.valid {
+    color: green;
+}
+
+.requirement .icon {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.password-strength-label {
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    text-align: left;
+    width: 50%;
+}
+
+.container-passwort-ändern {
+    margin-left: 10px;
+}
+
+/* Sonstige Stile */
+.logo {
+    height: 80px;
+}
+
+.logo-preview {
+    max-width: 100px;
+    max-height: 100px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.logo-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .row-equal-height {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .row-equal-height>.col-sm-6 {
+        flex: 0 0 50% !important;
+        margin-bottom: 3%;
+    }
+
+    .row-equal-height>.col-sm-6:nth-child(odd) {
+        margin-right: 0% !important;
+    }
+}
+
+/* White Mode */
+input[readonly] {
+    background-color: #e9ecef !important;
+    color: #495057;
+}
+
+/* Dark Mode */
+[data-bs-theme="dark"] input[readonly] {
+    background-color: #343a40 !important;
+    color: #ced4da;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 300px;
+    /* Länglicher Tooltip */
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: left;
+    /* Text linksbündig */
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    /* Positioniert den Tooltip vertikal mittig in Bezug auf den Button */
+    left: 105%;
+    /* Positioniert den Tooltip rechts vom Button */
+    transform: translateY(-50%);
+    /* Vertikale Zentrierung */
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    /* Optional: Schatten für Tooltip */
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-text {
+    position: relative;
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+.tooltip-text:hover .tooltip-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-content {
+    visibility: hidden;
+    opacity: 0;
+    width: 320px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 20%;
+    margin-left: -110px;
+    transition: opacity 0.3s;
+}
+
+.tooltip-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    /* Bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.text-muted {
+    margin-top: 15px !important;
+}
+
+/* Tabelle passt sich an die Containerbreite an */
+.resizable-table {
+    width: 100%;
+    /* Die Tabelle füllt den Container vollständig aus */
+    table-layout: fixed;
+    /* Die Spalten verteilen sich gleichmäßig */
+    max-width: 100%;
+    /* Verhindert, dass die Tabelle breiter als der Container wird */
+}
+
+/* Verhindert, dass Inhalte über die Spaltenbreite hinausragen */
+.resizable-table th,
+.resizable-table td {
+    overflow: hidden;
+    /* Verhindert Überlauf von Text oder Inhalten */
+    word-wrap: break-word;
+    /* Ermöglicht Umbruch langer Wörter */
+}
+
+/* Setzt eine minimale Breite für die Spalten */
+.resizable-table th {
+    min-width: 100px;
+    /* Mindestbreite der Spalten */
+    position: relative;
+    /* Notwendig für die Positionierung des Resizers */
+}
+
+/* Resizer-Stil: über die gesamte Höhe der Tabelle */
+.resizable-table th .resizer {
+    position: absolute;
+    /* Positioniert den Resizer relativ zum TH */
+    top: 0;
+    /* Startet am oberen Rand der Zelle */
+    right: 3px;
+    /* Positioniert ihn am rechten Rand der Zelle */
+    bottom: 0;
+    /* Erstreckt sich bis zum unteren Rand der Zelle */
+    width: 3px;
+    /* Dünnerer Resizer */
+    border-radius: 5px;
+    cursor: col-resize;
+    /* Zeigt den "resize" Cursor beim Überfahren */
+    user-select: none;
+    /* Verhindert, dass der Resizer auswählbar ist */
+    background-color: transparent;
+    /* Unsichtbar, solange nicht gehovt */
+    transition: background-color 0.3s ease;
+    /* Weiche Transition für Hover-Effekt */
+}
+
+/* Erweiterter Bereich um den Greifer */
+.resizable-table th .resizer:before {
+    content: '';
+    /* Pseudoelement benötigt ein Inhalt */
+    position: absolute;
+    /* Absolut positioniert */
+    top: 0;
+    left: -5px;
+    /* Erweiterung nach links */
+    right: -3px;
+    /* Keine Änderung nach rechts, da schon 5px verschoben */
+    bottom: 0;
+    cursor: col-resize;
+    /* Zeigt den "resize" Cursor auch im erweiterten Bereich */
+    user-select: none;
+    /* Verhindert, dass das Pseudoelement auswählbar ist */
+}
+
+.resizer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -5px;
+    /* Erweitert den Greifbereich um 5px nach links */
+    right: -5px;
+    /* Erweitert den Greifbereich um 5px nach rechts */
+    height: 100%;
+    background-color: transparent;
+    /* Hintergrund ebenfalls transparent halten */
+    cursor: col-resize;
+}
+
+/* Entfernt den Resizer aus der letzten Spalte */
+.resizable-table th:last-child .resizer {
+    display: none;
+    /* Resizer für die letzte Spalte wird ausgeblendet */
+}
+
+/* Hintergrundfarbe des Resizers beim Hover über die Spalte */
+.resizable-table th:hover .resizer {
+    background-color: #ccc;
+    /* Leicht sichtbare Hintergrundfarbe beim Überfahren mit der Maus */
+}
+
+.btn-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-group .reset-table {
+    margin-left: 10px;
+    /* Größerer Abstand vor dem "Spaltenbreite zurücksetzen"-Button */
+}
+
+
+/* Stellt sicher, dass der Platzhalter unsichtbar ist */
+.sortable-ghost {
+    opacity: 0;
+}
+
+/* Zeigt das gezogene Element mit voller Deckkraft */
+.sortable-drag {
+    opacity: 1 !important;
+}
+
+/* Versteckt das Originalelement während des Ziehens */
+.hide-original {
+    visibility: hidden;
+}
+
+.small,
+small {
+    font-size: 0.95em;
+}
+
+.info-icon {
+    cursor: help;
+}
+
+.tight-spacing {
+    margin-bottom: -5px;
+    /* Oder ein anderer Wert, je nach gewünschtem Abstand */
+}
+
+.ui-icon {
+    cursor: move;
+}
+
+#sortable-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#sortable-table th,
+#sortable-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.resizable-table {
+    table-layout: fixed;
+}
+
+.sortable-placeholder {
+    background-color: #f0f0f0; /* Helle Hintergrundfarbe für den Platzhalter */
+    border: 1px #ccc; /* Gezielter Rahmen */
+    height: 50px; /* Standardhöhe, wird durch JS angepasst */
+    visibility: hidden; /* Unsichtbar, bis es durch JS sichtbar gemacht wird */
+}
+
+.sortable-helper {
+    visibility: hidden;
+}
+
+.navbar-nav .dropdown-menu.dropdown-menu-center {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+}

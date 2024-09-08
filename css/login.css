@@ -1,0 +1,333 @@
+:root {
+    --primary-color: #152039;
+    /* Platzhalter, wird durch PHP überschrieben */
+    --secondary-color: #e5803a;
+    /* Platzhalter, wird durch PHP überschrieben */
+}
+
+/* Allgemeine Stile für body und html */
+body {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+html {
+    height: 100%;
+}
+
+/* Box-Stile für Login und Reset */
+.login-box,
+.reset-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    margin-right: 50px;
+    position: relative;
+}
+
+/* Formular-Elemente */
+label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 18px;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Optionen und Buttons */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.btn {
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-padding-y: 0.375rem;
+    --bs-btn-font-family: ;
+    --bs-btn-font-size: 1rem;
+    --bs-btn-font-weight: 400;
+    --bs-btn-line-height: 1.5;
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-width: var(--bs-border-width);
+    --bs-btn-border-color: transparent;
+    --bs-btn-border-radius: var(--bs-border-radius);
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-disabled-opacity: 0.65;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+    display: inline-block;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    font-family: var(--bs-btn-font-family);
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    color: var(--bs-btn-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    background-color: var(--bs-btn-bg);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--secondary-color);
+    --bs-btn-border-color: var(--secondary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+}
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+    color: var(--bs-btn-disabled-color);
+    pointer-events: none;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    opacity: var(--bs-btn-disabled-opacity);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Vertikaler Text */
+.vertical-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+    height: 100vh;
+    /* Sicherstellen, dass die Höhe des Containers die gesamte Ansichtshöhe einnimmt */
+    display: flex;
+    align-items: center;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    max-height: 100%;
+    color: white;
+    white-space: nowrap;
+    /* Verhindert Zeilenumbruch */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+
+/* Logo-Container */
+.logo-container {
+    content: '';
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.logo-container img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Nachrichtenboxen */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Passwortstärke-Anzeige */
+.password-strength-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.password-strength-level {
+    height: 100%;
+    width: 0;
+    background-color: red;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+.password-strength-bar::before,
+.password-strength-bar::after,
+.password-strength-bar span,
+.password-strength-bar span:nth-child(2) {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #fff;
+}
+
+.password-strength-bar::before {
+    left: 20%;
+}
+
+.password-strength-bar span {
+    left: 40%;
+}
+
+.password-strength-bar span:nth-child(2) {
+    left: 60%;
+}
+
+.password-strength-bar::after {
+    left: 80%;
+}
+
+.requirements {
+    margin-left: 5px;
+    font-size: 0.9em;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.requirement {
+    color: red;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.requirement.valid {
+    color: green;
+}
+
+.requirement .icon {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.password-strength-label {
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    text-align: left;
+    width: 50%;
+}
+
+.container-passwort-ändern {
+    margin-left: 10px;
+}
+
+.back-to-login {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-to-login a {
+    font-size: 18px;
+}
+
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+.back-to-login i {
+    margin-right: 8px;
+}
+
+/* Mobile Stile */
+@media (max-width: 768px) {
+    body {
+        justify-content: center;
+    }
+
+    .login-box,
+    .reset-box {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .vertical-text {
+        display: none;
+    }
+}
