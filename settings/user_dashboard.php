@@ -265,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_user'])) {
             <p>{$lang['email_body_account_created']} <strong>$role</strong>.</p>
             <p>{$lang['username']} <strong>$username</strong></p>
             <p>{$lang['email_body_set_password']}</p>
-            <p><a href='$reset_link' style='color: #1a82e2; text-decoration: none;'>{$lang['set_password']}</a></p>
+            <p><a href='$reset_link' style='color: #1a82e2; text-decoration: none;'>{$lang['reset_password']}</a></p>
             <p>{$lang['contact_us_if_questions']}</p>
         ";
 
