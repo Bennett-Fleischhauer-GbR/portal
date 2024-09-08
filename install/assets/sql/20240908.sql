@@ -233,7 +233,7 @@ ALTER TABLE `weather_data`
 -- AUTO_INCREMENT für Tabelle `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT für Tabelle `category_columns`
@@ -245,7 +245,7 @@ ALTER TABLE `category_columns`
 -- AUTO_INCREMENT für Tabelle `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1177;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT für Tabelle `password_resets`
@@ -263,13 +263,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT für Tabelle `smtp_settings`
 --
 ALTER TABLE `smtp_settings`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT für Tabelle `weather_data`
