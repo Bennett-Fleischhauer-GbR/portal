@@ -134,10 +134,14 @@ footer {
     width: 700px;
 }
 
-.btn:hover {
+.btn-primary:hover {
     color: #fff;
     background-color: #ff914d !important;
     border-color: #ff914d !important;
+    opacity: 0.8 !important;
+}
+
+.btn-success:hover {
     opacity: 0.8 !important;
 }
 
