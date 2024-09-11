@@ -538,6 +538,7 @@ $total_pages = ceil($total_users / $users_per_page);
                         <label for="role" class="form-label"><?php echo $lang['role']; ?></label>
                         <select class="form-control" id="role" name="role">
                             <option value="user">User</option>
+                            <option value="author">Author</option>
                             <option value="admin">Admin</option>
                         </select>
                     </div>

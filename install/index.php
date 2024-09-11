@@ -225,7 +225,7 @@ $totalSteps = count($steps);
                                 <input type="password" id="password" name="password" required>
                             </div>
 
-                            <button type="submit" class="btn">Add User</button>
+                            <button type="submit" class="btn btn-primary">Add User</button>
                         </form>
                     </div>
                 <?php endif; ?>
