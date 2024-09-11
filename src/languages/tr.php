@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'Kullanıcı Gösterge Paneli',
     'user_deleted_error' => 'Kullanıcı silinemedi.',
     'user_deleted_success' => 'Kullanıcı başarıyla silindi ve bir bildirim gönderildi.',
+    'user_exists_error' => 'Aynı e-posta veya kullanıcı adıyla bir kullanıcı zaten var.',
     'user_list' => 'Kullanıcı Listesi',
     'user_not_found' => 'Kullanıcı adı bulunamadı. Lütfen girişlerinizi kontrol edin.',
     'user_role_updated_error' => 'Kullanıcı rolü güncellenirken hata oluştu.',

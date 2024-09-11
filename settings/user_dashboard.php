@@ -231,68 +231,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_user'])) {
     $username = $_POST['username'];
     $city = $_POST['city'];
     $role = $_POST['role'];
+    $full_name = $first_name . ' ' . $last_name;
+    $box_order = 'box1,box2,box3';
 
-    $create_sql = "INSERT INTO users (first_name, last_name, email, username, city, role) VALUES (?, ?, ?, ?, ?, ?)";
-    $create_stmt = $conn->prepare($create_sql);
-    $create_stmt->bind_param("ssssss", $first_name, $last_name, $email, $username, $city, $role);
+    // Check if email or username already exists
+    $check_sql = "SELECT id FROM users WHERE email = ? OR username = ?";
+    $check_stmt = $conn->prepare($check_sql);
+    $check_stmt->bind_param("ss", $email, $username);
+    $check_stmt->execute();
+    $check_result = $check_stmt->get_result();
 
-    if ($create_stmt->execute()) {
-        $user_id = $create_stmt->insert_id; // Get the newly created user's ID
+    if ($check_result->num_rows > 0) {
+        // If a user with the same email or username exists, show an error message
+        $new_user_message = "<div class='alert alert-danger'>{$lang['user_exists_error']}</div>";
+    } else {
+        // Proceed with user creation if no duplicate found
+        $create_sql = "INSERT INTO users (first_name, last_name, email, username, city, role, full_name, box_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $create_stmt = $conn->prepare($create_sql);
+        $create_stmt->bind_param("ssssssss", $first_name, $last_name, $email, $username, $city, $role, $full_name, $box_order);
 
-        // Generate password reset token
-        $token = bin2hex(random_bytes(50));
-        $created_at = date('Y-m-d H:i:s');
+        if ($create_stmt->execute()) {
+            $user_id = $create_stmt->insert_id; // Get the newly created user's ID
 
-        // Store token in the database
-        $sql = "INSERT INTO password_resets (user_id, token, created_at) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iss", $user_id, $token, $created_at);
-        $stmt->execute();
-        $stmt->close();
+            // Generate password reset token
+            $token = bin2hex(random_bytes(50));
+            $created_at = date('Y-m-d H:i:s');
 
-        // Dynamische Domain und Protokoll ermitteln
-        $protocol = $_SERVER['REQUEST_SCHEME'];
-        $domain = $_SERVER['HTTP_HOST'];
+            // Store token in the database
+            $sql = "INSERT INTO password_resets (user_id, token, created_at) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("iss", $user_id, $token, $created_at);
+            $stmt->execute();
+            $stmt->close();
 
-        // Korrekte Pfadstruktur zu auth/password_update.php
-        $reset_link = "$protocol://$domain/auth/password_update.php?token=$token";
+            // Dynamische Domain und Protokoll ermitteln
+            $protocol = $_SERVER['REQUEST_SCHEME'];
+            $domain = $_SERVER['HTTP_HOST'];
 
-        // Send new account creation email with password reset link
-        $subject = $lang['email_subject_account_created'];
-        $header = $lang['email_header_account_created'];
-        $content = "
-            <p>{$lang['dear_user']},</p>
-            <p>{$lang['email_body_account_created']} <strong>$role</strong>.</p>
-            <p>{$lang['username']} <strong>$username</strong></p>
-            <p>{$lang['email_body_set_password']}</p>
-            <p><a href='$reset_link' style='color: #1a82e2; text-decoration: none;'>{$lang['reset_password']}</a></p>
-            <p>{$lang['contact_us_if_questions']}</p>
-        ";
+            // Korrekte Pfadstruktur zu auth/password_update.php
+            $reset_link = "$protocol://$domain/auth/password_update.php?token=$token";
 
-        send_email($email, $subject, $header, $content, get_smtp_settings($conn), $conn);
+            // Send new account creation email with password reset link
+            $subject = $lang['email_subject_account_created'];
+            $header = $lang['email_header_account_created'];
+            $content = "
+                <p>{$lang['dear_user']},</p>
+                <p>{$lang['email_body_account_created']} <strong>$role</strong>.</p>
+                <p>{$lang['username']} <strong>$username</strong></p>
+                <p>{$lang['email_body_set_password']}</p>
+                <p><a href='$reset_link' style='color: #1a82e2; text-decoration: none;'>{$lang['reset_password']}</a></p>
+                <p>{$lang['contact_us_if_questions']}</p>
+            ";
 
-        // Notify all admins
-        $admin_emails = get_admin_emails($conn);
-        $admin_subject = $lang['email_subject_admin_new_user'];
-        $admin_content = "
-            <p>{$lang['email_body_admin_new_user']}:</p>
-            <p><strong>{$lang['first_name']}:</strong> $first_name</p>
-            <p><strong>{$lang['last_name']}:</strong> $last_name</p>
-            <p><strong>{$lang['email']}:</strong> $email</p>
-            <p><strong>{$lang['username']}:</strong> $username</p>
-            <p><strong>{$lang['role']}:</strong> $role</p>
-        ";
+            send_email($email, $subject, $header, $content, get_smtp_settings($conn), $conn);
 
-        foreach ($admin_emails as $admin_email) {
-            send_email($admin_email, $admin_subject, $lang['email_admin_notification'], $admin_content, get_smtp_settings($conn), $conn);
+            // Notify all admins
+            $admin_emails = get_admin_emails($conn);
+            $admin_subject = $lang['email_subject_admin_new_user'];
+            $admin_content = "
+                <p>{$lang['email_body_admin_new_user']}:</p>
+                <p><strong>{$lang['first_name']}:</strong> $first_name</p>
+                <p><strong>{$lang['last_name']}:</strong> $last_name</p>
+                <p><strong>{$lang['email']}:</strong> $email</p>
+                <p><strong>{$lang['username']}:</strong> $username</p>
+                <p><strong>{$lang['role']}:</strong> $role</p>
+            ";
+
+            foreach ($admin_emails as $admin_email) {
+                send_email($admin_email, $admin_subject, $lang['email_admin_notification'], $admin_content, get_smtp_settings($conn), $conn);
+            }
+
+            $new_user_message = "<div class='alert alert-success'>{$lang['user_created_success']}</div>";
+        } else {
+            $new_user_message = "<div class='alert alert-danger'>{$lang['user_created_error']}</div>";
         }
 
-        $new_user_message = "<div class='alert alert-success'>{$lang['user_created_success']}</div>";
-    } else {
-        $new_user_message = "<div class='alert alert-danger'>{$lang['user_created_error']}</div>";
+        $create_stmt->close();
     }
 
-    $create_stmt->close();
+    $check_stmt->close();
 }
 
 function get_smtp_settings($conn)

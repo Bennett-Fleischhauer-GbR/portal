@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'User Dashboard',
     'user_deleted_error' => 'Error deleting the user.',
     'user_deleted_success' => 'The user was successfully deleted and a notification was sent.',
+    'user_exists_error' => 'A user with the same email or username already exists.',
     'user_list' => 'User List',
     'user_not_found' => 'Username not found. Please check your entries.',
     'user_role_updated_error' => 'Error updating the user role.',

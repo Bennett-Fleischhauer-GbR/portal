@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'ユーザーダッシュボード',
     'user_deleted_error' => 'ユーザーの削除に失敗しました。',
     'user_deleted_success' => 'ユーザーが正常に削除され、通知が送信されました。',
+    'user_exists_error' => '同じメールアドレスまたはユーザー名を持つユーザーが既に存在します。',
     'user_list' => 'ユーザーリスト',
     'user_not_found' => 'ユーザー名が見つかりません。入力内容を確認してください。',
     'user_role_updated_error' => 'ユーザーの役割の更新に失敗しました。',

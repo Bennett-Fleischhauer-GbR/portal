@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'Benutzer-Dashboard',
     'user_deleted_error' => 'Fehler beim Löschen des Benutzers.',
     'user_deleted_success' => 'Der Benutzer wurde erfolgreich gelöscht und eine Benachrichtigung wurde gesendet.',
+    'user_exists_error' => 'Ein Benutzer mit derselben E-Mail-Adresse oder demselben Benutzernamen existiert bereits.',
     'user_list' => 'Benutzerliste',
     'user_not_found' => 'Benutzername nicht gefunden. Bitte überprüfen Sie Ihre Eingaben.',
     'user_role_updated_error' => 'Fehler beim Aktualisieren der Benutzerrolle.',

@@ -48,9 +48,9 @@ function handleStep1() {
             $conn->query("SET FOREIGN_KEY_CHECKS = 1");
 
             // SQL Datei einlesen und ausführen
-            $sqlFilePath = __DIR__ . '/../sql/20240908.sql';
+            $sqlFilePath = __DIR__ . '/../sql/database.sql';
             if (!file_exists($sqlFilePath)) {
-                throw new Exception("SQL file '20240908.sql' not found.");
+                throw new Exception("SQL file 'database.sql' not found.");
             }
 
             $sqlContent = file_get_contents($sqlFilePath);

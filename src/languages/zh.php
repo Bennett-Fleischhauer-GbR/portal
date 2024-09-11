@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => '用户仪表盘',
     'user_deleted_error' => '删除用户时出错。',
     'user_deleted_success' => '用户已成功删除，并发送了通知。',
+    'user_exists_error' => '具有相同电子邮件或用户名的用户已存在。',
     'user_list' => '用户列表',
     'user_not_found' => '未找到用户名。请检查您的输入。',
     'user_role_updated_error' => '更新用户角色时出错。',

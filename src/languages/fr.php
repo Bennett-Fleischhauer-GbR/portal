@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'Tableau de Bord Utilisateur',
     'user_deleted_error' => 'Erreur lors de la suppression de l\'utilisateur.',
     'user_deleted_success' => 'L\'utilisateur a été supprimé avec succès et une notification a été envoyée.',
+    'user_exists_error' => 'Un utilisateur avec le même e-mail ou nom d\'utilisateur existe déjà.',
     'user_list' => 'Liste des Utilisateurs',
     'user_not_found' => 'Nom d\'utilisateur introuvable. Veuillez vérifier vos saisies.',
     'user_role_updated_error' => 'Erreur lors de la mise à jour du rôle de l\'utilisateur.',

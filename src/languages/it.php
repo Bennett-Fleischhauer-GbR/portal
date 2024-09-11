@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'Dashboard Utente',
     'user_deleted_error' => 'Errore durante l\'eliminazione dell\'utente.',
     'user_deleted_success' => 'L\'utente è stato eliminato con successo e una notifica è stata inviata.',
+    'user_exists_error' => 'Esiste già un utente con la stessa email o nome utente.',
     'user_list' => 'Elenco Utenti',
     'user_not_found' => 'Nome utente non trovato. Verifica le tue inserzioni.',
     'user_role_updated_error' => 'Errore nell\'aggiornamento del ruolo dell\'utente.',

@@ -251,6 +251,7 @@ $lang = [
     'user_dashboard' => 'Panel de Usuario',
     'user_deleted_error' => 'Error al eliminar el usuario.',
     'user_deleted_success' => 'El usuario se eliminó con éxito y se envió una notificación.',
+    'user_exists_error' => 'Ya existe un usuario con el mismo correo electrónico o nombre de usuario.',
     'user_list' => 'Lista de Usuarios',
     'user_not_found' => 'El nombre de usuario no se encontró. Verifique sus entradas.',
     'user_role_updated_error' => 'Error al actualizar el rol de usuario.',

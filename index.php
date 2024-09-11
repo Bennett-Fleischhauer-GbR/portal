@@ -262,6 +262,8 @@ $stmt = $conn->prepare("
 ");
 $stmt->execute();
 $categories = $stmt->get_result();
+
+$hasLinks = false; // Variable zur Überprüfung, ob es mindestens einen Link gibt
 ?>
 
 <!DOCTYPE html>
@@ -370,6 +372,7 @@ $categories = $stmt->get_result();
 
             // **Prüfe, ob es mindestens einen Eintrag gibt**
             if ($links_result->num_rows > 0): // Nur wenn es Einträge gibt, zeige die Box an
+                $hasLinks = true; // Setze die Variable auf true, sobald ein Link gefunden wurde
                 ?>
                 <div class="card mb-5">
                     <div class="card-body">
@@ -421,24 +424,18 @@ $categories = $stmt->get_result();
                                 </div>
                             <?php endwhile; ?>
                         </div>
-                    <?php else: ?>
-                        <div class="alert alert-warning">
-                            <?php echo $lang['no_data_part1'] . "<a href='/settings/link_settings.php'>" . $lang['no_data_part2'] . "</a>" . $lang['no_data_part3']; ?>
-                        </div>
-                    <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         <?php endwhile; ?>
 
         <!-- Zeige die grüne Box an, wenn keine Kategorien oder Links vorhanden sind -->
-        <?php if ($categories->num_rows === 0): ?>
+        <?php if (!$hasLinks): ?>
             <div class="alert alert-warning">
                 <?php echo $lang['no_data_part1'] . "<a href='/settings/link_settings.php'>" . $lang['no_data_part2'] . "</a>" . $lang['no_data_part3']; ?>
             </div>
         <?php endif; ?>
 
-
-    </div>
     </div><!-- Ende des Hauptinhalts-Containers -->
 
     <!-- Footer einbinden -->
