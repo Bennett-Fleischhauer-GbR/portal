@@ -346,7 +346,7 @@ $totalSteps = count($steps);
                 ?>
 
                 <form action="" method="POST">
-                    <button type="submit" class="btn btn-danger" style="width: 100%;">Complete Installation</button>
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Complete Installation</button>
                 </form>
             </div>
 
