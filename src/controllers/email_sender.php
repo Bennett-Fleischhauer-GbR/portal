@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
-    $user_language = $stmt->get_result()->fetch_assoc()['user_language'];
+    $user_language = $stmt->get_result()->fetch_assoc()['user_language'] ?? 'en'; // Default to 'en' if no user language is set
     $stmt->close();
 
     $language = $user_language ?? 'en'; // Fallback auf Englisch, falls keine Sprache eingestellt ist
@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     $system_language = $stmt->get_result()->fetch_assoc()['language'];
     $stmt->close();
 
-    $language = $system_language ?? 'en'; // Fallback auf Englisch, falls keine Sprache eingestellt ist
+    $language = $system_language;
 }
 
 // Sprachdatei laden
