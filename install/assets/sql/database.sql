@@ -107,7 +107,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `site_title`, `company_name`, `email_signature_name`, `logo_white`, `logo_dark`, `favicon`, `primary_color`, `secondary_color`, `footer_text`, `footer_option`, `foundation_year`, `openweather_api_key`, `show_copyright`, `favicon_version`, `greeting_text`, `language`, `show_boxes`, `link_shortener_api_url`, `link_shortener_api_token`, `link_shortener_enabled`) VALUES
-(1, 'Portal', 'Bennett & Fleischhauer GbR', 'Portal', '/assets/images/portal_black.svg', '/assets/images/portal_white.svg', '/assets/icons/default-favicon.ico', '#404C58', '#FF914D', '| Portal - All rights reserved', 'current_year_text', 0, 'null', 1, 13, 'to the Portal.', 'de', 0, 'yourls.host/yourls-api.php', NULL, 0);
+(1, 'Portal', 'Bennett & Fleischhauer GbR', 'Portal', '/assets/images/portal_black.svg', '/assets/images/portal_white.svg', '/assets/icons/default-favicon.ico', '#404C58', '#FF914D', '| Portal - All rights reserved', 'current_year_text', 0, 'null', 1, 13, 'to the Portal.', 'en', 0, 'yourls.host/yourls-api.php', NULL, 0);
 
 -- --------------------------------------------------------
 
