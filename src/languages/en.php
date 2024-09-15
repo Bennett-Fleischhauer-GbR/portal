@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'You are currently in the user role',
     'avatar' => 'Avatar',
     'back_to_login' => 'Back to Login',
+    'base_url' => 'Base URL',
     'cancel' => 'Cancel',
     'category_delete_confirm' => 'This category cannot be deleted because it still contains entries. Please delete all entries first.',
     'category_delete' => 'Delete Category',

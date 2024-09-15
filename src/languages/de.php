@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'Sie sind aktuell der Benutzerrolle',
     'avatar' => 'Avatar',
     'back_to_login' => 'Zurück zur Anmeldung',
+    'base_url' => 'Basis URL',
     'cancel' => 'Abbrechen',
     'category_delete_confirm' => 'Diese Kategorie kann nicht gelöscht werden, da sie noch Einträge enthält. Bitte löschen Sie zuerst alle Einträge.',
     'category_delete' => 'Kategorie löschen',

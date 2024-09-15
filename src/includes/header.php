@@ -1,6 +1,5 @@
 <?php
-// Definiere den Basis-URL-Pfad, relativ zum Root der Website
-$base_url = '/'; // Falls deine Seite nicht im Root liegt, z.B. in /projekt/, passe den Pfad entsprechend an
+
 
 // Verhindern des direkten Zugriffs auf die Datei
 if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
@@ -14,6 +13,19 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 include __DIR__ . '/../config/dbconnect.php';
+
+// Logos und Spracheinstellungen aus der settings-Tabelle abrufen
+$sql = "SELECT logo_white, logo_dark, link_shortener_enabled, base_url FROM settings WHERE id = 1";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$settings = $stmt->get_result()->fetch_assoc();
+$link_shortener_enabled = $settings['link_shortener_enabled'];
+$logos = [
+    'logo_white' => $settings['logo_white'],
+    'logo_dark' => $settings['logo_dark'],
+];
+$base_url = $settings['base_url'];
+$stmt->close();
 
 // Prüfen, ob der Benutzer eingeloggt ist
 if (!isset($_SESSION['user_id'])) {
@@ -33,17 +45,6 @@ if (!isset($_SESSION['user_data'])) {
     $stmt->close();
 }
 
-// Logos und Spracheinstellungen aus der settings-Tabelle abrufen
-$sql = "SELECT logo_white, logo_dark, link_shortener_enabled FROM settings WHERE id = 1";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$settings = $stmt->get_result()->fetch_assoc();
-$link_shortener_enabled = $settings['link_shortener_enabled'];
-$logos = [
-    'logo_white' => $settings['logo_white'],
-    'logo_dark' => $settings['logo_dark'],
-];
-$stmt->close();
 
 $user = $_SESSION['user_data'];
 $first_name = $user['first_name'];
@@ -76,8 +77,8 @@ $current_page = basename($_SERVER['PHP_SELF'], ".php");
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="<?php echo $base_url; ?>">
-            <img src="<?php echo htmlspecialchars($logos['logo_white']); ?>" alt="Logo" class="logo logo-light">
-            <img src="<?php echo htmlspecialchars($logos['logo_dark']); ?>" alt="Logo" class="logo logo-dark">
+            <img src="<?php echo $base_url . htmlspecialchars($logos['logo_white']); ?>" alt="Logo" class="logo logo-light">
+            <img src="<?php echo $base_url . htmlspecialchars($logos['logo_dark']); ?>" alt="Logo" class="logo logo-dark">
         </a>
         <button class="navbar-toggler" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -100,6 +100,7 @@ CREATE TABLE `settings` (
   `link_shortener_api_url` varchar(255) DEFAULT NULL,
   `link_shortener_api_token` varchar(255) DEFAULT NULL,
   `link_shortener_enabled` tinyint(1) DEFAULT '0'
+  `base_url` varchar(255) NOT NULL DEFAULT '/',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --

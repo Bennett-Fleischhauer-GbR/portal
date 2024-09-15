@@ -315,7 +315,7 @@ unset($_SESSION['save_settings_message']);
 // Website-Einstellungen speichern
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_settings'])) {
     // Zuerst die aktuellen Werte aus der Datenbank abrufen
-    $sql = "SELECT site_title, company_name, email_signature_name, greeting_text, language, show_boxes FROM settings WHERE id = 1";
+    $sql = "SELECT site_title, company_name, email_signature_name, greeting_text, base_url, language, show_boxes FROM settings WHERE id = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -327,6 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_settings'])) {
     $company_name = $_POST['company_name'];
     $email_signature_name = $_POST['email_signature_name'];
     $greeting_text = $_POST['greeting_text'];
+    $base_url = $_POST['base_url'];
     $language = $_POST['language']; // Neue Sprachvariable
     $show_boxes = isset($_POST['show_boxes']) ? 1 : 0; // Zustand der Boxen
 
@@ -357,6 +358,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_settings'])) {
         $has_changes = true;
     }
 
+    // Vergleich der alten und neuen Basis URL
+    if ($current_settings['base_url'] !== $base_url) {
+        $changes[] = "<li><strong>{$lang['base_url']}:</strong> {$lang['changed_from']} " . htmlspecialchars($current_settings['base_url']) . " {$lang['to']} " . htmlspecialchars($base_url) . "</li>";
+        $has_changes = true;
+    }
+
     // Vergleich der alten und neuen Sprache
     if ($current_settings['language'] !== $language) {
         $changes[] = "<li><strong>{$lang['language']}:</strong> {$lang['changed_from']} " . htmlspecialchars($current_settings['language']) . " {$lang['to']} " . htmlspecialchars($language) . "</li>";
@@ -370,9 +377,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_settings'])) {
 
     // Wenn Änderungen vorhanden sind, aktualisieren und Benachrichtigung senden
     if ($has_changes) {
-        $sql = "UPDATE settings SET site_title = ?, company_name = ?, email_signature_name = ?, greeting_text = ?, language = ?, show_boxes = ? WHERE id = 1";
+        $sql = "UPDATE settings SET site_title = ?, company_name = ?, email_signature_name = ?, greeting_text = ?, base_url = ?, language = ?, show_boxes = ? WHERE id = 1";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssssi", $site_title, $company_name, $email_signature_name, $greeting_text, $language, $show_boxes);
+        $stmt->bind_param("ssssssi", $site_title, $company_name, $email_signature_name, $greeting_text, $base_url, $language, $show_boxes);
 
         if ($stmt->execute()) {
             // Sprachdatei neu laden basierend auf der neuen Sprache
@@ -406,7 +413,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_settings'])) {
 // Link Shortener API-Einstellungen speichern
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_link_shortener'])) {
     // Zuerst die aktuellen Werte aus der Datenbank abrufen
-    $sql = "SELECT link_shortener_api_url, link_shortener_api_token, link_shortener_enabled FROM settings WHERE id = 1";
+    $sql = "SELECT link_shortener_api_url, link_shortener_api_token, link_shortener_enabled, base_url FROM settings WHERE id = 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -562,7 +569,13 @@ if ($conn) {
                     <div class="mb-3">
                         <label for="greeting_text" class="form-label"><?php echo $lang['greeting_text']; ?></label>
                         <textarea class="form-control" id="greeting_text"
-                            name="greeting_text"><?php echo htmlspecialchars($portal_settings['greeting_text']); ?></textarea>
+                        name="greeting_text"><?php echo htmlspecialchars($portal_settings['greeting_text']); ?></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="base_url"
+                            class="form-label"><?php echo $lang['base_url']; ?></label>
+                        <input type="text" class="form-control" id="base_url" name="base_url"
+                            value="<?php echo htmlspecialchars($portal_settings['base_url']); ?>">
                     </div>
 
                     <div class="mb-3">

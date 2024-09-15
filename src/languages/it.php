@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'Attualmente sei nel ruolo utente',
     'avatar' => 'Avatar',
     'back_to_login' => 'Torna al Login',
+    'base_url' => 'URL di base',
     'cancel' => 'Annulla',
     'category_delete_confirm' => 'Questa categoria non può essere eliminata perché contiene ancora voci. Si prega di eliminare prima tutte le voci.',
     'category_delete' => 'Elimina Categoria',
