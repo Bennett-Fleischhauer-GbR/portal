@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'Şu anki kullanıcı rolünüz',
     'avatar' => 'Avatar',
     'back_to_login' => 'Girişe Dön',
+    'base_url' => 'Temel URL',
     'cancel' => 'İptal',
     'category_delete_confirm' => 'Bu kategori içerdiği öğeler nedeniyle silinemez. Lütfen önce tüm öğeleri silin.',
     'category_delete' => 'Kategoriyi Sil',

@@ -647,7 +647,7 @@ if ($conn) {
                         <div class="col-lg-1 col-md-1 text-center"
                             style="background-color: #a6a6a6; padding: 10px; border-radius: 4px;">
                             <?php if (!empty($portal_settings['logo_white'])): ?>
-                                <img src="<?php echo htmlspecialchars($portal_settings['logo_white']); ?>"
+                                <img src="<?php echo $base_url . htmlspecialchars($portal_settings['logo_white']); ?>"
                                     alt="<?php echo $lang['logo_white_preview']; ?>" class="img-fluid"
                                     style="max-width: 60px; max-height: 60px;">
                             <?php endif; ?>
@@ -675,7 +675,7 @@ if ($conn) {
                         <div class="col-lg-1 col-md-1 text-center"
                             style="background-color: #a6a6a6; padding: 10px; border-radius: 4px;">
                             <?php if (!empty($portal_settings['logo_dark'])): ?>
-                                <img src="<?php echo htmlspecialchars($portal_settings['logo_dark']); ?>"
+                                <img src="<?php echo $base_url . htmlspecialchars($portal_settings['logo_dark']); ?>"
                                     alt="<?php echo $lang['logo_dark_preview']; ?>" class="img-fluid"
                                     style="max-width: 60px; max-height: 60px;">
                             <?php endif; ?>
@@ -703,7 +703,7 @@ if ($conn) {
                         <div class="col-lg-1 col-md-1 text-center"
                             style="background-color: #a6a6a6; padding: 10px; border-radius: 4px;">
                             <?php if (!empty($portal_settings['favicon'])): ?>
-                                <img src="<?php echo htmlspecialchars($portal_settings['favicon']); ?>"
+                                <img src="<?php echo $base_url . htmlspecialchars($portal_settings['favicon']); ?>"
                                     alt="<?php echo $lang['favicon_preview']; ?>" class="img-fluid"
                                     style="max-width: 60px; max-height: 60px;">
                             <?php endif; ?>
