@@ -51,9 +51,11 @@ body {
 }
 .content-container {
     width: 1000px;
-    height: 65%;
     background: #fff;
     padding: 30px;
+    max-height: 95%;
+    overflow-y: auto;
+    min-height: 65%;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     margin-left: 20px;
