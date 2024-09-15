@@ -54,7 +54,8 @@ body {
     background: #fff;
     padding: 30px;
     max-height: 95%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    min-height: 65%;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     margin-left: 20px;
