@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'Vous avez actuellement le rôle d\'utilisateur',
     'avatar' => 'Avatar',
     'back_to_login' => 'Retour à la Connexion',
+    'base_url' => 'URL de base',
     'cancel' => 'Annuler',
     'category_delete_confirm' => 'Cette catégorie ne peut pas être supprimée car elle contient encore des entrées. Veuillez d\'abord supprimer toutes les entrées.',
     'category_delete' => 'Supprimer la Catégorie',

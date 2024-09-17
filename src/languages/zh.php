@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => '您当前的用户角色是',
     'avatar' => '头像',
     'back_to_login' => '返回登录',
+    'base_url' => '基本网址',
     'cancel' => '取消',
     'category_delete_confirm' => '该类别包含条目，无法删除。请先删除所有条目。',
     'category_delete' => '删除类别',

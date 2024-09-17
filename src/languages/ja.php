@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => '現在の役割：',
     'avatar' => 'アバター',
     'back_to_login' => 'ログインに戻る',
+    'base_url' => 'ベースURL',
     'cancel' => 'キャンセル',
     'category_delete_confirm' => 'このカテゴリはエントリを含んでいるため、削除できません。最初にすべてのエントリを削除してください。',
     'category_delete' => 'カテゴリを削除',

@@ -61,10 +61,11 @@ $stmt->close();
 $show_boxes = $user['show_boxes'] && $portal_settings['admin_show_boxes'];
 
 // Website-Einstellungen abrufen, um den Begrüßungstext anzuzeigen
-$sql = "SELECT greeting_text FROM settings WHERE id = 1";
+$sql = "SELECT greeting_text, base_url FROM settings WHERE id = 1";
 $result = $conn->query($sql);
 $settings = $result->fetch_assoc();
 $greeting_text = $settings['greeting_text'];
+$base_url = $settings['base_url'];
 
 // Tageszeitabhängige Begrüßung
 $currentHour = date("H");
@@ -432,7 +433,7 @@ $hasLinks = false; // Variable zur Überprüfung, ob es mindestens einen Link gi
         <!-- Zeige die grüne Box an, wenn keine Kategorien oder Links vorhanden sind -->
         <?php if (!$hasLinks): ?>
             <div class="alert alert-warning">
-                <?php echo $lang['no_data_part1'] . "<a href='/settings/link_settings.php'>" . $lang['no_data_part2'] . "</a>" . $lang['no_data_part3']; ?>
+                <?php echo $lang['no_data_part1'] . "<a href='" . $base_url . "settings/link_settings.php'>" . $lang['no_data_part2'] . "</a>" . $lang['no_data_part3']; ?>
             </div>
         <?php endif; ?>
 

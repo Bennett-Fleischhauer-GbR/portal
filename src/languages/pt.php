@@ -23,6 +23,7 @@ $lang = [
     'assigned_role' => 'Atualmente você está no papel de usuário',
     'avatar' => 'Avatar',
     'back_to_login' => 'Voltar ao Login',
+    'base_url' => 'URL base',
     'cancel' => 'Cancelar',
     'category_delete_confirm' => 'Esta categoria não pode ser excluída porque ainda contém entradas. Por favor, exclua todas as entradas primeiro.',
     'category_delete' => 'Excluir Categoria',
